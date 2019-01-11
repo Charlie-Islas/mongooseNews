@@ -29,12 +29,12 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Connect to the Mongo DB
-//var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-mongoose.Promise = Promise; // Set mongoose to leverage Built in JavaScript ES6 Promises
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+//i tried with this but it doesn't work:
+//mongodb://heroku_73f4n636@ds133570.mlab.com:33570/heroku_73f4n636
+//mongoose.Promise = Promise; // Set mongoose to leverage Built in JavaScript ES6 Promises
 
-mongoose.connect("mongodb://heroku_73f4n636@ds133570.mlab.com:33570/heroku_73f4n636",{
-  useMongoClient:true
-});
+mongoose.connect(MONGODB_URI);
 
 let mongooseConnection = mongoose.connection;
 
